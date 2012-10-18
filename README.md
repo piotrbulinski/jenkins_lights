@@ -1,6 +1,6 @@
-=====================
-Trafic Lights Project
-=====================
+======================
+Jenkins Lights Project
+======================
 
 Hardware:
 
