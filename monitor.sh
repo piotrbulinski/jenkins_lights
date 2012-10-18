@@ -1,4 +1,6 @@
-nsmod usbserial &> /dev/null
+#!/bin/sh
+
+insmod usbserial &> /dev/null
 insmod ftdi_sio &> /dev/null
 
 stty -F /dev/ttyUSB0 speed 57600 &> /dev/null
