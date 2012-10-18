@@ -1,28 +1,30 @@
 #!/bin/sh
 
-insmod usbserial &> /dev/null
-insmod ftdi_sio &> /dev/null
+sleep 5
 
-stty -F /dev/ttyUSB0 speed 57600 &> /dev/null
+T=/usr/local/root/xml
+P=/dev/ttyUSB0
 
-echo -en "\x1bSD00\x1b1WD02" > /dev/ttyUSB0
+/sbin/insmod usbserial &> /dev/null
+/sbin/insmod ftdi_sio &> /dev/null
+
+/bin/stty -F $P speed 57600 &> /dev/null
+
+/bin/echo -en "\x1bSD00\x1b1WD02" > $P
 
 while true; do
-  rm -f xml
-  wget -q http://build.strato.castlabs.com/jenkins/view/Server/api/xml
+  /bin/rm -f $T
+  /usr/bin/wget -q http://example.com/jenkins/view/TestView/api/xml
 
-  RES_ANIME=`grep "_anime<" xml`
-  RES_RED=`grep ">red<" xml`
+  RES_ANIME=`/bin/grep "_anime<" $T`
+  RES_RED=`/bin/grep ">red<" $T`
 
   if [ "$RES_ANIME" ]; then
-    echo "busy"
-    echo -en "\x1b1WD02" > /dev/ttyUSB0
+    /bin/echo -en "\x1b1WD02" > $P
   elif [ "$RES_RED" ]; then
-    echo "error"
-    echo -en "\x1b1WD04" > /dev/ttyUSB0
+    /bin/echo -en "\x1b1WD04" > $P
   else
-    echo "ok"
-    echo -en "\x1b1WD01" > /dev/ttyUSB0
+    /bin/echo -en "\x1b1WD01" > $P
   fi
-  sleep 1
+  sleep 2
 done
