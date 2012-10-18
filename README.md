@@ -14,7 +14,7 @@ Hardware:
 
 Software:
 
-WL500gpv2-1.9.2.7-rtn-r4667.trx (renewed Oleg's firmware) - http://code.google.com/p/wl500g/
+    WL500gpv2-1.9.2.7-rtn-r4667.trx (renewed Oleg's firmware) - http://code.google.com/p/wl500g/
 
 HowTo:
 
