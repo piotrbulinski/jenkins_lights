@@ -26,6 +26,3 @@ HowTo:
     6) flashfs commit
     7) flashfs enable
     8) reboot & enjoy ;)
-
-How it works: http://youtu.be/bzfaijcnEPU
-
